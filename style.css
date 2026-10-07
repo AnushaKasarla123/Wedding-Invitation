@@ -1,0 +1,3211 @@
+/* =========================================================
+   WEDDING WEBSITE
+   ANUSHA & KARTHIK
+   FINAL ELEGANT VERSION
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap');
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --cream: #f8f1e5;
+    --ivory: #fffaf1;
+
+    --maroon: #641f2a;
+    --deep: #3c1119;
+
+    --gold: #b18a43;
+    --light-gold: #d8bd7b;
+
+    --rose: #d9a6a7;
+
+    --text: #493b35;
+    --white: #ffffff;
+
+    --shadow:
+        0 24px 70px rgba(60, 17, 25, .12);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+.section {
+    padding: 115px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-kicker {
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(46px, 6vw, 72px);
+    line-height: .98;
+    color: var(--maroon);
+    font-weight: 500;
+    text-align: center;
+}
+
+.section-title em {
+    font-style: normal;
+}
+
+.section-intro {
+    max-width: 650px;
+    margin: 20px auto 0;
+    text-align: center;
+    line-height: 1.8;
+    color: #735e55;
+}
+
+.section-text {
+    max-width: 690px;
+    margin: 28px auto;
+    text-align: center;
+    line-height: 1.95;
+    font-size: 15px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 1px;
+    background: var(--gold);
+    margin: 28px auto 55px;
+    position: relative;
+}
+
+.gold-line::before,
+.gold-line::after {
+    content: "✦";
+    position: absolute;
+    top: -8px;
+    color: var(--gold);
+    font-size: 10px;
+}
+
+.gold-line::before {
+    left: -20px;
+}
+
+.gold-line::after {
+    right: -20px;
+}
+
+.script-text {
+    font-family: "Great Vibes", cursive;
+    color: var(--maroon);
+    font-size: 32px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(36px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   OPENING SCREEN
+========================================================= */
+
+.opening-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: var(--cream);
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(216, 189, 123, .18),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #3c1119,
+            #5b1a27 55%,
+            #321018
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.opening-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.opening-glow {
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(216, 189, 123, .13);
+
+    box-shadow:
+        0 0 100px rgba(216, 189, 123, .08);
+}
+
+.opening-content {
+    position: relative;
+    width: 90%;
+    z-index: 2;
+}
+
+.eyebrow {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--light-gold);
+}
+
+.opening-content h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(44px, 7vw, 78px);
+    font-weight: 500;
+    margin: 6px 0;
+}
+
+.ornament {
+    font-size: 32px;
+    color: var(--light-gold);
+    margin: 17px;
+}
+
+.opening-subtitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    line-height: 1.9;
+    opacity: .86;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+.envelope-wrapper {
+    margin: 45px auto 24px;
+    perspective: 1000px;
+}
+
+.envelope {
+    width: min(390px, 84vw);
+    height: 245px;
+
+    position: relative;
+
+    border: 0;
+    background: none;
+
+    cursor: pointer;
+
+    transform-style: preserve-3d;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ead8b6,
+            #c9ad75
+        );
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, .38);
+}
+
+.envelope-back::after {
+    content: "";
+
+    position: absolute;
+    inset: 14px;
+
+    border:
+        1px solid rgba(100, 31, 42, .35);
+}
+
+.envelope-paper {
+    position: absolute;
+
+    left: 8%;
+    bottom: 8%;
+
+    width: 84%;
+    height: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--ivory);
+    color: var(--maroon);
+
+    font:
+        34px
+        "Great Vibes",
+        cursive;
+
+    z-index: 2;
+
+    transition:
+        transform 1.15s ease;
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, .08);
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0 0 auto 0;
+
+    height: 0;
+
+    border-left:
+        195px solid transparent;
+
+    border-right:
+        195px solid transparent;
+
+    border-top:
+        140px solid #d6bd8c;
+
+    z-index: 4;
+
+    transform-origin: top;
+
+    transition:
+        transform 1s ease;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .envelope-paper {
+    transform: translateY(-88px);
+}
+
+.wax-seal {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: #741f2d;
+
+    border:
+        4px solid var(--gold);
+
+    color: #e8ce91;
+
+    font-size: 25px;
+
+    z-index: 10;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, .3);
+
+    transition: .5s;
+}
+
+.envelope.open .wax-seal {
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.45);
+}
+
+.tap-text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--light-gold);
+
+    animation:
+        pulse 1.7s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: .35;
+    }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: #fff;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(150, 70, 80, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #5a1723 0%,
+            #641f2a 50%,
+            #4b121d 100%
+        );
+
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            transparent 20%,
+            rgba(30, 5, 10, 0.18) 100%
+        );
+
+    pointer-events: none;
+}
+
+.hero-border {
+    position: absolute;
+    inset: 24px;
+
+    border:
+        1px solid rgba(216, 189, 123, .6);
+
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    padding: 35px 20px;
+}
+
+.hero-kicker {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 6px;
+
+    color: #ead29a;
+}
+
+.gold-ornament {
+    font-size: 34px;
+    color: #d6b76e;
+    margin: 18px 0;
+}
+
+
+/* MAIN NAMES */
+
+.couple-name {
+    font:
+        400
+        clamp(76px, 11vw, 135px)
+        / .92
+        "Great Vibes",
+        cursive;
+
+    color: #fffaf1;
+
+    text-shadow:
+        0 5px 25px rgba(0, 0, 0, .30);
+
+    white-space: nowrap;
+}
+
+.couple-name span {
+    font:
+        400
+        .40em
+        "Cormorant Garamond",
+        serif;
+
+    margin: 0 12px;
+
+    color: #fff3df;
+}
+
+.hero-text {
+    margin-top: 30px;
+
+    font:
+        24px / 1.45
+        "Cormorant Garamond",
+        serif;
+
+    color: #fffaf1;
+}
+
+.hero-date {
+    margin-top: 25px;
+
+    letter-spacing: 8px;
+
+    color: #ead29a;
+
+    font-size: 12px;
+}
+
+.hero-cta {
+    display: inline-flex;
+
+    gap: 12px;
+
+    align-items: center;
+
+    margin-top: 32px;
+
+    padding: 13px 20px;
+
+    border:
+        1px solid rgba(216, 189, 123, .7);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #f8edce;
+
+    transition: .3s;
+}
+
+.hero-cta:hover {
+    background: #d8bd7b;
+    color: #3c1119;
+}
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 26px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 3;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #ead29a;
+}
+
+.scroll-indicator span {
+    display: block;
+
+    font-size: 20px;
+
+    margin-top: 7px;
+
+    animation:
+        scrollDown 1.5s infinite;
+}
+
+@keyframes scrollDown {
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+
+/* =========================================================
+   OUR STORY / WELCOME SECTION
+========================================================= */
+
+.story-section {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(177, 138, 67, 0.07),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(100, 31, 42, 0.05),
+            transparent 28%
+        ),
+        #fcf8f0;
+
+    padding: 110px 30px 120px;
+
+    min-height: 760px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.story-container {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   KICKER
+========================================================= */
+
+.story-kicker {
+    color: #b18a43;
+
+    font-size: 13px;
+
+    letter-spacing: 6px;
+
+    font-weight: 600;
+
+    margin: 0 0 18px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.story-title {
+    margin: 0;
+
+    color: #641f2a;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(52px, 7vw, 86px);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    letter-spacing: -1px;
+}
+
+
+/* =========================================================
+   GOLD LINE
+========================================================= */
+
+.story-line {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 28px auto 32px;
+}
+
+
+.story-line div {
+    width: 100px;
+
+    height: 1px;
+
+    background: #b18a43;
+}
+
+
+.story-line span {
+    color: #b18a43;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   CENTER MESSAGE
+========================================================= */
+
+.story-message {
+    max-width: 780px;
+
+    margin: 0 auto;
+
+    color: #665853;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.story-quote {
+    margin: 25px 0 40px;
+
+    color: #641f2a;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 32px;
+
+    font-style: italic;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   BRIDE & GROOM PHOTOS
+========================================================= */
+
+.couple-photos {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 45px;
+
+    margin: 35px auto 0;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   PERSON
+========================================================= */
+
+.person-photo {
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CIRCULAR PHOTO
+========================================================= */
+
+.photo-circle {
+
+    width: 190px;
+    height: 190px;
+
+    padding: 7px;
+
+    border-radius: 50%;
+
+    background: #fcf8f0;
+
+    border: 1px solid #b18a43;
+
+    box-shadow:
+        0 0 0 7px rgba(177, 138, 67, 0.08),
+        0 15px 35px rgba(100, 31, 42, 0.12);
+
+    position: relative;
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+/* Inner gold border */
+
+.photo-circle::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(177, 138, 67, 0.45);
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* Image */
+
+.photo-circle img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* Hover */
+
+.person-photo:hover .photo-circle {
+
+    transform: translateY(-6px) scale(1.03);
+
+    box-shadow:
+        0 0 0 8px rgba(177, 138, 67, 0.10),
+        0 22px 45px rgba(100, 31, 42, 0.18);
+}
+
+
+/* =========================================================
+   NAMES
+========================================================= */
+
+.person-name {
+
+    margin: 22px 0 3px;
+
+    color: #641f2a;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.person-role {
+
+    color: #b18a43;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CENTER HEART
+========================================================= */
+
+.couple-heart {
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #b18a43;
+
+    background: #fcf8f0;
+
+    border: 1px solid rgba(177, 138, 67, 0.5);
+
+    font-size: 25px;
+
+    position: relative;
+
+    z-index: 3;
+
+    margin-top: -35px;
+
+    box-shadow: 0 8px 20px rgba(100, 31, 42, 0.08);
+}
+
+
+/* =========================================================
+   DECORATIVE CIRCLES
+========================================================= */
+
+.person-photo::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 205px;
+    height: 205px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(177, 138, 67, 0.20);
+
+    top: -8px;
+    left: 50%;
+
+    transform: translateX(-50%) rotate(8deg);
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .couple-photos {
+
+        gap: 20px;
+
+    }
+
+
+    .photo-circle {
+
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .person-photo::before {
+
+        width: 165px;
+        height: 165px;
+    }
+
+
+
+
+    .couple-heart {
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 21px;
+
+        margin-top: -25px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .couple-photos {
+
+        gap: 8px;
+    }
+
+
+    .photo-circle {
+
+        width: 125px;
+        height: 125px;
+
+        padding: 5px;
+    }
+
+
+    .person-photo::before {
+
+        width: 138px;
+        height: 138px;
+    }
+
+
+    .person-name {
+
+        font-size: 23px;
+
+        margin-top: 17px;
+    }
+
+
+    .person-role {
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .couple-heart {
+
+        width: 36px;
+        height: 36px;
+
+        font-size: 18px;
+
+        margin-top: -20px;
+    }
+}
+
+/* =========================================================
+   CELEBRATION TIMELINE
+   PREVIOUS ALTERNATING TIMELINE STRUCTURE
+   MAROON + CREAM + GOLD
+========================================================= */
+
+.celebration-section {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(177, 138, 67, 0.08),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(177, 138, 67, 0.06),
+            transparent 28%
+        ),
+        #f8f1e5;
+
+    padding: 110px 0 130px;
+}
+
+
+/* =========================================================
+   DECORATIVE PETALS
+========================================================= */
+
+.celebration-section::before,
+.celebration-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 22px;
+
+    background: rgba(190, 118, 118, 0.25);
+
+    border-radius: 100% 0 100% 0;
+
+    transform: rotate(35deg);
+
+    pointer-events: none;
+}
+
+.celebration-section::before {
+    top: 15%;
+    left: 7%;
+}
+
+.celebration-section::after {
+    bottom: 18%;
+    right: 8%;
+
+    transform: rotate(-35deg);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.celebration-section .section-kicker {
+    text-align: center;
+
+    color: #b18a43;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+
+.celebration-section .section-title {
+    text-align: center;
+
+    color: #641f2a;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(42px, 5vw, 64px);
+
+    font-weight: 500;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   GOLD LINE
+========================================================= */
+
+.celebration-section .gold-line {
+    width: 120px;
+
+    height: 1px;
+
+    background: #b18a43;
+
+    margin: 25px auto 80px;
+
+    position: relative;
+}
+
+.celebration-section .gold-line::before,
+.celebration-section .gold-line::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #b18a43;
+
+    font-size: 10px;
+}
+
+.celebration-section .gold-line::before {
+    left: -18px;
+}
+
+.celebration-section .gold-line::after {
+    right: -18px;
+}
+
+
+/* =========================================================
+   MAIN TIMELINE
+========================================================= */
+
+.celebration-timeline {
+
+    position: relative;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 20px 0 40px;
+}
+
+
+/* =========================================================
+   CENTER VERTICAL LINE
+========================================================= */
+
+.celebration-timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    background: rgba(177, 138, 67, 0.55);
+
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.celebration-card {
+
+    position: relative;
+
+    width: calc(50% - 60px);
+
+    min-height: 260px;
+
+    padding: 42px 45px;
+
+    margin-bottom: 75px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #641f2a,
+            #4d1720
+        );
+
+    border: 1px solid rgba(177, 138, 67, 0.45);
+
+    color: #fffdf9;
+
+    box-sizing: border-box;
+
+    overflow: visible;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* =========================================================
+   LEFT / RIGHT ALTERNATING STRUCTURE
+========================================================= */
+
+.celebration-card:nth-child(odd) {
+
+    margin-right: auto;
+
+    margin-left: 0;
+
+    text-align: left;
+}
+
+
+.celebration-card:nth-child(even) {
+
+    margin-left: auto;
+
+    margin-right: 0;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.celebration-number {
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 64px;
+
+    height: 64px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    background: #641f2a;
+
+    border: 1px solid #b18a43;
+
+    box-shadow:
+        0 0 0 5px #f8f1e5;
+
+    color: #e2c477;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 17px;
+
+    z-index: 5;
+}
+
+
+/* LEFT CARD NUMBER */
+
+.celebration-card:nth-child(odd)
+.celebration-number {
+
+    right: -92px;
+}
+
+
+/* RIGHT CARD NUMBER */
+
+.celebration-card:nth-child(even)
+.celebration-number {
+
+    left: -92px;
+}
+
+
+/* =========================================================
+   SUBTLE CARD GLOW
+========================================================= */
+
+.celebration-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(177, 138, 67, 0.10);
+
+    top: -90px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    filter: blur(4px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BOTTOM RIGHT GLOW
+========================================================= */
+
+.celebration-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    right: -35px;
+
+    bottom: -35px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.celebration-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: rgba(216, 181, 106, 0.85);
+
+    box-shadow:
+        0 20px 45px rgba(100, 31, 42, 0.22);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.celebration-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.celebration-date {
+
+    display: block;
+
+    color: #d8b56a;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.celebration-content h3 {
+
+    color: #fffdf9;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    font-weight: 500;
+
+    margin: 0 0 12px;
+}
+
+
+/* =========================================================
+   TIME
+========================================================= */
+
+.celebration-time {
+
+    color: #d8b56a;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    margin: 0 0 16px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.celebration-description {
+
+    color: rgba(255, 253, 249, 0.80);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    max-width: 430px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   SUPPORT YOUR CURRENT HTML
+========================================================= */
+
+.celebration-card span {
+
+    color: #d8b56a;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+}
+
+
+.celebration-card h3 {
+
+    color: #fffdf9;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    margin: 12px 0;
+}
+
+
+.celebration-card p {
+
+    color: rgba(255, 253, 249, 0.82);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   TIME P COLOR
+========================================================= */
+
+.celebration-card p:first-of-type {
+
+    color: #d8b56a;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   WEDDING CARD
+   SAME STYLE — NO SPECIAL MAROON DIFFERENCE
+========================================================= */
+
+.wedding-highlight {
+
+    background:
+        linear-gradient(
+            145deg,
+            #641f2a,
+            #4d1720
+        );
+
+    border-color: rgba(216, 181, 106, 0.65);
+}
+
+
+.wedding-highlight h3 {
+
+    color: #fffdf9;
+
+    font-size: 44px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.celebration-card.reveal {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.celebration-card.reveal.active {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   STAGGER
+========================================================= */
+
+.celebration-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.celebration-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.celebration-card:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.celebration-card:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .celebration-section {
+
+        padding: 80px 20px 90px;
+    }
+
+
+    .celebration-section .section-title {
+
+        font-size: 44px;
+    }
+
+
+    .celebration-timeline {
+
+        padding-left: 30px;
+    }
+
+
+    /* Move timeline line to left */
+
+    .celebration-timeline::before {
+
+        left: 12px;
+
+        transform: none;
+    }
+
+
+    .celebration-card,
+    .celebration-card:nth-child(odd),
+    .celebration-card:nth-child(even) {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        margin-right: 0;
+
+        margin-bottom: 55px;
+
+        padding: 38px 28px;
+
+        text-align: left;
+    }
+
+
+    .celebration-number,
+    .celebration-card:nth-child(odd) .celebration-number,
+    .celebration-card:nth-child(even) .celebration-number {
+
+        left: -50px;
+
+        right: auto;
+
+        width: 55px;
+
+        height: 55px;
+    }
+
+
+    .celebration-content h3,
+    .celebration-card h3 {
+
+        font-size: 36px;
+    }
+
+
+    .wedding-highlight h3 {
+
+        font-size: 38px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .celebration-section .section-title {
+
+        font-size: 38px;
+    }
+
+
+    .celebration-section .section-kicker {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .celebration-timeline {
+
+        padding-left: 25px;
+    }
+
+
+    .celebration-card,
+    .celebration-card:nth-child(odd),
+    .celebration-card:nth-child(even) {
+
+        padding: 32px 22px;
+    }
+
+
+    .celebration-number,
+    .celebration-card:nth-child(odd) .celebration-number,
+    .celebration-card:nth-child(even) .celebration-number {
+
+        left: -43px;
+
+        width: 48px;
+
+        height: 48px;
+
+        font-size: 14px;
+    }
+
+
+    .celebration-card span,
+    .celebration-date {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .celebration-content h3,
+    .celebration-card h3 {
+
+        font-size: 31px;
+    }
+}
+
+/* =========================================================
+   INVITATION
+========================================================= */
+
+.invitation-section {
+    background: #efe2c9;
+}
+
+.invitation-card {
+    max-width: 830px;
+
+    margin: auto;
+
+    padding: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6f222f,
+            #501622
+        );
+
+    box-shadow:
+        0 30px 80px rgba(70, 30, 20, .2);
+}
+
+.invitation-border {
+    border:
+        1px solid #d8bd7b;
+
+    padding: 75px 55px;
+
+    text-align: center;
+
+    color: var(--cream);
+
+    position: relative;
+}
+
+.invitation-border::before,
+.invitation-border::after {
+    content: "";
+
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    border-color: #d8bd7b;
+    border-style: solid;
+}
+
+.invitation-border::before {
+    top: 15px;
+    left: 15px;
+
+    border-width:
+        1px 0 0 1px;
+}
+
+.invitation-border::after {
+    right: 15px;
+    bottom: 15px;
+
+    border-width:
+        0 1px 1px 0;
+}
+
+.invitation-top,
+.invitation-bottom {
+    color: var(--light-gold);
+
+    font-size: 30px;
+}
+
+.invitation-small {
+    margin: 20px 0;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #d8bd7b;
+}
+
+.invitation-card h2 {
+    font:
+        400
+        clamp(68px, 10vw, 110px)
+        / .9
+        "Great Vibes",
+        cursive;
+
+    color: var(--cream);
+}
+
+.invitation-card h2 span {
+    font:
+        .4em
+        "Cormorant Garamond",
+        serif;
+}
+
+.invitation-message {
+    max-width: 530px;
+
+    margin: 35px auto;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+.invitation-date {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 17px;
+
+    margin: 30px 0;
+}
+
+.invitation-date > span {
+    font:
+        80px
+        "Cormorant Garamond",
+        serif;
+
+    color: #d8bd7b;
+}
+
+.invitation-date div {
+    border-left:
+        1px solid var(--gold);
+
+    padding-left: 17px;
+
+    text-align: left;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.invitation-date small {
+    letter-spacing: 3px;
+}
+
+.invitation-date strong {
+    font-size: 20px;
+}
+
+.invitation-time {
+    color: #d8bd7b;
+
+    letter-spacing: 3px;
+
+    font-size: 10px;
+}
+
+.invitation-venue {
+    margin-top: 28px;
+}
+
+.invitation-venue strong {
+    font:
+        500 25px
+        "Cormorant Garamond",
+        serif;
+}
+
+.invitation-venue p {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.invitation-bottom {
+    margin-top: 35px;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-section {
+    min-height: 520px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            rgba(45, 9, 16, .78),
+            rgba(55, 12, 20, .87)
+        ),
+        url("images/hero.jpg")
+        center / cover fixed;
+}
+
+.countdown-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Elegant heading — NOT playful */
+
+.countdown-section h2,
+.final-content h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    color: #fffaf1;
+}
+
+.countdown-section h2 {
+    font-size: clamp(58px, 7vw, 82px);
+
+    line-height: 1;
+}
+
+.countdown-section .gold-line {
+    margin-bottom: 45px;
+}
+
+.countdown {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+.count-box {
+    width: 132px;
+    height: 132px;
+
+    border:
+        1px solid rgba(216, 189, 123, .7);
+
+    background:
+        rgba(0, 0, 0, .1);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    backdrop-filter: blur(3px);
+
+    transition: .3s;
+}
+
+.count-box:hover {
+    transform: translateY(-5px);
+
+    background:
+        rgba(216, 189, 123, .08);
+}
+
+.count-box span {
+    font:
+        55px
+        "Cormorant Garamond",
+        serif;
+
+    color: #e7cd91;
+}
+
+.count-box small {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #fffaf1;
+}
+
+
+/* =========================================================
+   WEDDING DETAILS
+========================================================= */
+
+.details-section {
+    background: var(--ivory);
+}
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.detail-card {
+    padding: 42px 25px;
+
+    text-align: center;
+
+    background: #fff;
+
+    border:
+        1px solid rgba(177, 138, 67, .23);
+
+    position: relative;
+
+    box-shadow:
+        0 15px 35px rgba(70, 30, 20, .05);
+
+    transition: .35s;
+}
+
+.detail-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border:
+        1px solid rgba(177, 138, 67, .1);
+
+    pointer-events: none;
+}
+
+.detail-card:hover {
+    transform: translateY(-7px);
+}
+
+.detail-icon {
+    font-size: 32px;
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+}
+
+.detail-card span {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--gold);
+}
+
+
+.detail-card h3 {
+    margin: 13px 0 7px;
+
+    font:
+        500 28px
+        "Cormorant Garamond",
+        serif;
+
+    color: var(--maroon);
+}
+
+.detail-card p {
+    font-size: 12px;
+
+    color: #79665d;
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp-section {
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(177, 138, 67, .12),
+            transparent 35%
+        ),
+        var(--cream);
+}
+
+.rsvp-form {
+    max-width: 720px;
+
+    margin: 45px auto 0;
+
+    background:
+        rgba(255, 255, 255, .8);
+
+    padding: 45px;
+
+    border:
+        1px solid rgba(177, 138, 67, .25);
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+}
+
+.form-heading {
+    text-align: center;
+
+    border-bottom:
+        1px solid #e1d5c2;
+
+    padding-bottom: 24px;
+
+    margin-bottom: 30px;
+}
+
+.form-heading span {
+    font:
+        45px
+        "Great Vibes",
+        cursive;
+
+    color: var(--maroon);
+}
+
+.form-heading p {
+    font-size: 12px;
+
+    margin-top: 4px;
+
+    color: #806b60;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: var(--maroon);
+
+    margin-bottom: 8px;
+}
+
+.form-group label span {
+    letter-spacing: 0;
+
+    color: #927f75;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border:
+        1px solid #d9c9ae;
+
+    background: #fffdf8;
+
+    outline: none;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    transition: .25s;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px rgba(177, 138, 67, .08);
+}
+
+.submit-button {
+    width: 100%;
+
+    padding: 17px;
+
+    background: var(--maroon);
+
+    color: #ead29a;
+
+    border:
+        1px solid var(--gold);
+
+    cursor: pointer;
+
+    letter-spacing: 2px;
+
+    font-size: 10px;
+
+    transition: .3s;
+}
+
+.submit-button:hover {
+    background: var(--deep);
+
+    transform: translateY(-2px);
+}
+
+.submit-button span {
+    font-size: 16px;
+
+    margin-left: 7px;
+}
+
+
+/* =========================================================
+   OUR VENUES
+   ONLY TWO VENUES
+========================================================= */
+
+.map-section {
+    background: #efe2c9;
+}
+
+.locations-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+
+    max-width: 1050px;
+
+    margin: auto;
+}
+
+.venue-card {
+    background:
+        rgba(255, 255, 255, .78);
+
+    border:
+        1px solid rgba(177, 138, 67, .28);
+
+    box-shadow:
+        0 20px 55px rgba(70, 30, 20, .09);
+
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+.venue-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 30px 70px rgba(70, 30, 20, .15);
+}
+
+.venue-image {
+    height: 210px;
+
+    display: grid;
+
+    place-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    color: #e7cd91;
+}
+
+.venue-image::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216, 189, 123, .25),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #641f2a,
+            #3c1119
+        );
+}
+
+.venue-home .venue-image::after {
+    content: "❦";
+
+    position: absolute;
+
+    font-size: 125px;
+
+    opacity: .08;
+}
+
+.venue-hall .venue-image::after {
+    content: "✦";
+
+    position: absolute;
+
+    font-size: 145px;
+
+    opacity: .08;
+}
+
+.venue-image > span {
+    position: relative;
+
+    z-index: 1;
+
+    font-size: 48px;
+}
+
+.venue-badge {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 2;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid #d8bd7b;
+
+    display: grid;
+
+    place-items: center;
+
+    color: #d8bd7b;
+
+    font:
+        16px
+        "Cormorant Garamond",
+        serif;
+}
+
+.venue-body {
+    text-align: center;
+
+    padding: 32px 28px 38px;
+}
+
+.venue-kicker {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--gold);
+
+    font-weight: 600;
+}
+
+.venue-card h3 {
+    font:
+        500 34px / 1.05
+        "Cormorant Garamond",
+        serif;
+
+    color: var(--maroon);
+
+    margin: 12px auto 13px;
+
+    max-width: 360px;
+}
+
+.venue-body > p:not(.venue-kicker):not(.location-code) {
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.location-code {
+    margin: 17px 0 22px;
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+.gold-button {
+    display: inline-flex;
+
+    gap: 8px;
+
+    align-items: center;
+
+    border:
+        1px solid var(--gold);
+
+    color: var(--maroon);
+
+    padding: 11px 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    transition: .3s;
+}
+
+.gold-button:hover {
+    background: var(--maroon);
+
+    color: #fff;
+}
+
+.gold-button span {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   INVITED BY
+========================================================= */
+
+.family-section {
+    background: var(--ivory);
+}
+
+.family-card {
+    max-width: 760px;
+
+    margin: auto;
+
+    text-align: center;
+
+    padding: 65px 40px;
+
+    background: #fff;
+
+    border:
+        1px solid rgba(177, 138, 67, .28);
+
+    box-shadow:
+        0 20px 55px rgba(70, 30, 20, .06);
+
+    position: relative;
+}
+
+.family-card::before,
+.family-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    border-color:
+        rgba(177, 138, 67, .5);
+
+    border-style: solid;
+}
+
+.family-card::before {
+    left: 15px;
+    top: 15px;
+
+    border-width:
+        1px 0 0 1px;
+}
+
+.family-card::after {
+    right: 15px;
+    bottom: 15px;
+
+    border-width:
+        0 1px 1px 0;
+}
+
+.family-floral {
+    color: var(--gold);
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.family-intro {
+    font:
+        23px
+        "Cormorant Garamond",
+        serif;
+}
+
+.family-card h3 {
+    color: var(--maroon);
+
+    font:
+        500 34px
+        "Cormorant Garamond",
+        serif;
+
+    margin: 13px;
+}
+
+.family-and {
+    color: var(--gold);
+
+    font:
+        35px
+        "Great Vibes",
+        cursive;
+}
+
+.family-bottom {
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(177, 138, 67, .2);
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #7e6c63;
+}
+
+
+/* =========================================================
+   FINAL CELEBRATION
+========================================================= */
+
+.celebration-section {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        110px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,255,255,.05),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(216,189,123,.08),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #63363d,
+            #542c32
+        );
+
+    overflow: hidden;
+}
+
+.celebration-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1050px;
+
+    width: 100%;
+}
+
+.celebration-subtitle {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    color: #d9b56c;
+
+    margin-bottom: 28px;
+}
+
+
+/* IMPORTANT:
+   Elegant serif instead of rounded font
+*/
+
+.celebration-title {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(58px, 7vw, 100px);
+
+    font-weight: 400;
+
+    line-height: 1.02;
+
+    letter-spacing: 0;
+
+    color: #fffaf1;
+
+    margin: 0 auto;
+
+    max-width: 1000px;
+}
+
+.celebration-title span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    color: #fffaf1;
+}
+
+.celebration-divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin: 34px 0;
+}
+
+.celebration-divider::before,
+.celebration-divider::after {
+    content: "";
+
+    width: 85px;
+
+    height: 1px;
+
+    background: #d6ad61;
+}
+
+.celebration-divider i {
+    width: 6px;
+    height: 6px;
+
+    background: #d6ad61;
+
+    transform:
+        rotate(45deg);
+
+    display: block;
+}
+
+.celebration-description {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px;
+
+    line-height: 1.6;
+
+    color: #fff8ef;
+
+    max-width: 680px;
+
+    margin: 0 auto 30px;
+}
+
+
+/* Couple names remain romantic */
+
+.celebration-names {
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(48px, 5vw, 70px);
+
+    font-weight: 400;
+
+    color: #e6c36f;
+
+    margin-top: 25px;
+
+    letter-spacing: 0;
+}
+
+.celebration-heart {
+    margin-top: 30px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 30px;
+
+    color: #e6c36f;
+}
+
+
+/* =========================================================
+   FLOATING PETALS
+========================================================= */
+
+.petals {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+
+    top: -30px;
+
+    width: 10px;
+    height: 15px;
+
+    background: #d7a3a3;
+
+    border-radius:
+        70% 30% 70% 30%;
+
+    opacity: .5;
+
+    animation:
+        fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(360deg)
+            translateX(80px);
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #2b0b11;
+
+    color: #cbbd9f;
+
+    text-align: center;
+
+    padding: 30px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    line-height: 2;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .section {
+        padding: 85px 0;
+    }
+
+    .hero-border {
+        inset: 12px;
+    }
+
+    .couple-name {
+        font-size: 74px;
+    }
+
+    .hero-text {
+        font-size: 20px;
+    }
+
+    .welcome-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .welcome-copy .section-kicker,
+    .welcome-copy .section-title {
+        text-align: center;
+    }
+
+    .welcome-copy .gold-line {
+        margin-left: auto;
+    }
+
+    .welcome-art {
+        height: 390px;
+    }
+
+    .art-orbit {
+        width: 290px;
+        height: 290px;
+    }
+
+    .main-art {
+        width: 220px;
+        height: 295px;
+    }
+
+    .celebration-timeline::before {
+        left: 24px;
+    }
+
+    .celebration-card,
+    .celebration-card:nth-child(odd),
+    .celebration-card:nth-child(even) {
+        width:
+            calc(100% - 58px);
+
+        margin-left: 58px;
+
+        margin-right: 0;
+    }
+
+    .celebration-card .timeline-number,
+    .celebration-card:nth-child(odd) .timeline-number,
+    .celebration-card:nth-child(even) .timeline-number {
+        left: -84px;
+
+        right: auto;
+    }
+
+    .locations-grid,
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .invitation-border {
+        padding: 55px 22px;
+    }
+
+    .countdown-section {
+        background-attachment: scroll;
+    }
+
+    .section-decor {
+        display: none;
+    }
+
+    /* HERO */
+
+    .couple-name {
+        font-size: 76px;
+    }
+
+    .hero-text {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* CELEBRATION */
+
+    .celebration-section {
+        min-height: 90vh;
+        padding: 90px 20px;
+    }
+
+    .celebration-title {
+        font-size:
+            clamp(50px, 11vw, 76px);
+    }
+
+    .celebration-description {
+        font-size: 21px;
+    }
+
+    .celebration-divider::before,
+    .celebration-divider::after {
+        width: 60px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .opening-content h1 {
+        font-size: 44px;
+    }
+
+    .envelope {
+        height: 215px;
+    }
+
+    .envelope-flap {
+        border-left-width: 42vw;
+        border-right-width: 42vw;
+        border-top-width: 120px;
+    }
+
+    .envelope-paper {
+        font-size: 28px;
+    }
+
+    .couple-name {
+        font-size: 58px;
+        white-space: normal;
+    }
+
+    .couple-name span {
+        margin: 0 4px;
+    }
+
+    .hero-text {
+        font-size: 18px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-date {
+        font-size: 10px;
+        letter-spacing: 5px;
+    }
+
+    .hero-cta {
+        margin-top: 25px;
+    }
+
+    /* COUNTDOWN */
+
+    .countdown-section {
+        min-height: 550px;
+    }
+
+    .countdown-section h2 {
+        font-size: 55px;
+    }
+
+    .count-box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .count-box span {
+        font-size: 48px;
+    }
+
+    /* INVITATION */
+
+    .invitation-card h2 {
+        font-size: 65px;
+    }
+
+    .invitation-date > span {
+        font-size: 65px;
+    }
+
+    /* VENUES */
+
+    .venue-card h3 {
+        font-size: 30px;
+    }
+
+    /* CELEBRATION */
+
+    .celebration-section {
+        padding:
+            75px 18px;
+    }
+
+    .celebration-subtitle {
+        font-size: 8px;
+        letter-spacing: 3.5px;
+    }
+
+    .celebration-title {
+        font-size: 52px;
+        line-height: 1.05;
+    }
+
+    .celebration-description {
+        font-size: 20px;
+        max-width: 92%;
+    }
+
+    .celebration-names {
+        font-size: 48px;
+    }
+
+    .celebration-divider {
+        margin: 28px 0;
+    }
+
+    .celebration-divider::before,
+    .celebration-divider::after {
+        width: 45px;
+    }
+
+    /* RSVP */
+
+    .rsvp-form {
+        padding: 28px 20px;
+    }
+
+    /* FAMILY */
+
+    .family-card {
+        padding: 50px 25px;
+    }
+
+    .family-card h3 {
+        font-size: 29px;
+    }
+}
